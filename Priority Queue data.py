@@ -5,11 +5,11 @@ class PriorityQueue:
         self._elements = []
 
     def enqueue_with_priority(self, priority, value):
-        heappush(self._elements, (priority, value))
-
+        #heappush(self._elements, (priority, value))
+        heappush(self._elements, (-priority, value))
     def dequeue(self):
-        return heappop(self._elements)
-
+        #return heappop(self._elements)
+        return heappop(self._elements)[1]
 CRITICAL = 3
 IMPORTANT = 2
 NEUTRAL = 1
@@ -20,4 +20,9 @@ messages.enqueue_with_priority(NEUTRAL, "Radio station tuned in")
 messages.enqueue_with_priority(CRITICAL, "Brake pedal depressed")
 messages.enqueue_with_priority(IMPORTANT, "Hazard lights turned on")
 
+#print(messages.dequeue) #the lowest priority was chosen because of python's tuple comparison
 print(messages.dequeue())
+print(messages.dequeue())
+print(messages.dequeue())
+print(messages.dequeue())
+
